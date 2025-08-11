@@ -62,6 +62,15 @@ Open the frontend index.html file in your browser.
 
 📷 Screenshots
 (Add screenshots of your app UI here)
+![login-page](screenshots/login.png)
+![signup-page](screenshots/signup.png)
+![category-difficulty page](screenshots/category-difficulty.png)
+![question-page](screenshots/question.png)
+![result-page](screenshots/result.png)
+
+
+
+
 
 👩‍💻 Author
 Rutuja Ingole
