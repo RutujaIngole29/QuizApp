@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <label for="username">Username:</label>
+        <input id="username" type="text" placeholder="Choose username" />
+        <label for="password">Password:</label>
+        <input id="password" type="password" placeholder="Choose password" />
+        <button id="signupBtn">Sign Up</button>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p id="message" class="message"></p>
+    </div>
+
+<script>
+    const API_SIGNUP = "http://localhost:8080/api/auth/signup";
+
+    document.getElementById('signupBtn').addEventListener('click', async () => {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const messageEl = document.getElementById('message');
+        messageEl.textContent = '';
+
+        if (!username || !password) {
+            messageEl.textContent = 'Please enter username and password';
+            return;
+        }
+
+        try {
+            const res = await fetch(API_SIGNUP, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                messageEl.style.color = 'green';
+                messageEl.textContent = 'Signup successful! Redirecting to login...';
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1500);
+            } else {
+                messageEl.textContent = data.message || 'Signup failed';
+            }
+        } catch (err) {
+            messageEl.textContent = 'Server error';
+        }
+    });
+</script>
+
+</body>
+</html>

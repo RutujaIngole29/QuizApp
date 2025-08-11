@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Result</title>
+<link rel="stylesheet" href="result.css">
+</head>
+<body>
+
+<div class="result-container">
+    <h1>Quiz Results</h1>
+    <div id="circle" class="circle" style="--percent:0deg;">0%</div>
+    <p id="scoreText"></p>
+    <p id="statusText" class="status"></p>
+    <button onclick="window.location.href='category.html'">Take Another Quiz</button>
+</div>
+
+<script>
+    const score = parseInt(localStorage.getItem("quizScore")) || 0;
+    const total = parseInt(localStorage.getItem("quizTotal")) || 1;
+    const category = localStorage.getItem("quizCategory") || "Unknown";
+
+    const percentage = Math.round((score / total) * 100);
+    const passMark = 50; // Change this to your required pass percentage
+    const status = percentage >= passMark ? "Passed ✅" : "Failed ❌";
+    const statusClass = percentage >= passMark ? "pass" : "fail";
+
+    document.getElementById("scoreText").textContent =
+        `You scored ${score} out of ${total} in ${category} (${percentage}%)`;
+
+    const circleEl = document.getElementById("circle");
+    circleEl.style.setProperty("--percent", `${(percentage/100)*360}deg`);
+    circleEl.textContent = `${percentage}%`;
+
+    const statusEl = document.getElementById("statusText");
+    statusEl.textContent = status;
+    statusEl.classList.add(statusClass);
+</script>
+
+</body>
+</html>

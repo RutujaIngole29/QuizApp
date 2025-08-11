@@ -1,0 +1,51 @@
+   body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+       background-image: url("resbg.webp");
+       background-size: cover;
+        padding: 50px;
+    }
+    .result-container {
+        background: rgb(248, 248, 249,0.10);
+        padding: 30px;
+        border-radius: 15px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: conic-gradient(#d871f2 var(--percent), #ddd 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    .status {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .pass {
+        color: green;
+    }
+    .fail {
+        color: red;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background: #330b3d;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #45a049;
+    }

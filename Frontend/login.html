@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+   <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <div id="info">
+        <label for="username">Username:</label>
+        <input id="username" type="text" placeholder="Enter username" />
+        <label for="password">Password:</label>
+        <input id="password" type="password" placeholder="Enter password" />
+        <button id="loginBtn">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        <p id="message" class="message"></p>
+        </div>
+    </div>
+
+<script>
+    const API_LOGIN = "http://localhost:8080/api/auth/login";
+
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const messageEl = document.getElementById('message');
+        messageEl.textContent = '';
+
+        if (!username || !password) {
+            messageEl.textContent = 'Please enter username and password';
+            return;
+        }
+
+        try {
+            const res = await fetch(API_LOGIN, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                // Save user info in localStorage (simple session)
+                localStorage.setItem('quizUser', username);
+                // Redirect to quiz page
+                window.location.href = "category.html";
+            } else {
+                messageEl.textContent = data.message || 'Login failed';
+            }
+        } catch (err) {
+            messageEl.textContent = 'Server error';
+        }
+    });
+</script>
+
+</body>
+</html>

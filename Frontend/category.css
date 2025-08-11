@@ -1,0 +1,90 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f4; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+       background-image: url("quizbg2.jpg");
+    background-size: cover;
+}
+
+/* Main container */
+#optiondiv {
+    background: rgb(155, 124, 185);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+h1{
+    text-decoration:underline;
+}
+/* Title styling */
+#optiondiv h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Button container - vertical stack */
+#categoryButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* space between buttons */
+}
+
+/* Category buttons */
+#categoryButtons button {
+    padding: 12px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3a2050;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+#categoryButtons button:hover {
+    background-color: #1f3f26;
+    transform: translateY(-2px);
+}
+/* Difficulty heading spacing */
+#optiondiv h2 {
+    margin-top: 25px; /* space above the heading */
+    margin-bottom: 10px; /* small space before dropdown */
+    color: #222;
+    font-size: 18px;
+}
+
+/* Dropdown styling */
+#difficultySelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #f5eeee;
+    color: black;
+    background-color: #c0e5ef;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+#difficultySelect:hover {
+    border-color: #3a2050;
+}
+
+/* Focus effect */
+#difficultySelect:focus {
+    border-color: #3a2050;
+    box-shadow: 0 0 5px rgba(58, 32, 80, 0.5);
+}
