@@ -62,7 +62,7 @@ Open the frontend index.html file in your browser.
 
 📷 Screenshots
 (Add screenshots of your app UI here)
-![login-page](/login.png)
+![login-page](/loginpage.png)
 ![signup-page](/signup.png)
 ![category-difficulty page](/category-difficulty.png)
 ![question-page](/question.png)
