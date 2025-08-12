@@ -61,7 +61,7 @@ Run the Spring Boot application.
 Open the frontend index.html file in your browser.
 
 📷 Screenshots
-(Add screenshots of your app UI here)
+
 ![login-page](/loginpage.png)
 ![signup-page](/signup.png)
 ![category-difficulty page](/category-difficulty.png)
